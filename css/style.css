@@ -1,0 +1,64 @@
+@import url('./reset.css');
+:root{
+    --margenGeneral: 10px;
+}
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+body{
+    background-image: url('https://images.wallpaperscraft.com/image/single/fern_leaves_green_123899_3840x2160.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+header{
+    padding: var(--margenGeneral);
+    background: rgba(255, 255, 255, 0.2);
+    opacity: .9;
+    backdrop-filter: blur(10px);
+}
+header nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+header :is(button , input , select){
+    width: 100%;
+    padding: var(--margenGeneral);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: var(--margenGeneral);
+}
+header figure{
+    width: 100px;
+    height: 100px;
+    padding: var(--margenGeneral);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    margin: var(--margenGeneral);
+    align-self: left;
+}
+
+
+
+@media(min-width: 768px){
+    header{
+        height: 100vh;
+        position: fixed;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    header figure{
+        height: 75px;
+        width: 75px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

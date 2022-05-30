@@ -8,10 +8,26 @@
     <title>TO-DO</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/model.js"></script>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 </head>
 
 <body>
 
+    <header>
+        <nav class="form">
+            <figure>
+                <img src="./img/favicon.png" alt="Logo">
+            </figure>
+            <input type="text" id="todo">
+            <select id="prioridad">
+                <option value="">Seleccione una prioridad</option>
+                <option value="urgente">urgente</option>
+                <option value="diaria">diaria</option>
+                <option value="mensual">mensual</option>
+            </select>
+            <button>Guardar</button>
+        </nav>
+    </header>
 
     <script src="./js/controller.js"></script>
     <script src="./js/view.js"></script>

@@ -22,96 +22,17 @@ body{
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
+.wrapper{
+    max-width: 800px;
+    margin: 0 auto;
+}
 
 /*Fin variables generales*/
 
 
 /* header */
 
-
-header{
-    padding: var(--margenGeneral);
-    background: var(--fondoTransparente);
-    color: white;
-    backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-header hr{
-    width: 100%;
-    margin-bottom: calc(var(--margenGeneral) * 2);
-}
-header nav{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-header :is(button , input , select){
-    width: 100%;
-    padding: var(--margenGeneral);
-    margin-bottom: var(--margenGeneral);
-    border: none;
-    border-radius: 5px;
-}
-header figure{
-    width: 100px;
-    height: 100px;
-    padding: var(--margenGeneral);
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    margin: var(--margenGeneral);
-    align-self: left;
-}
-
-
-/* Fin header */
-
-
-/* main */
-
-
-main .to-do{
-    margin: var(--margenGeneral);
-    padding: calc(var(--margenGeneral) * 2);
-    border-radius: 5px;
-    background-color: var(--fondoTransparente);
-    color: white;
-}
-
-
-/* Media queries */
-
-@media(min-width: 768px){
-    header{
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 300px;
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-    header figure{
-        height: 75px;
-        width: 75px;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    main{
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: calc(100% - 300px);
-    }
-    main #to-doList{
-        max-width: 800px;
-        margin: 0 auto;
-    }
-}
-/* Fin media queries */

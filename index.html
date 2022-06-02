@@ -9,44 +9,35 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/model.js"></script>
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
     <header>
-        <nav class="form">
-            <figure>
-                <img src="./img/favicon.png" alt="Logo">
-            </figure>
-            <select id="prioridad">
-                <option value="">Seleccione una prioridad</option>
-                <option value="urgente">urgente</option>
-                <option value="diaria">diaria</option>
-                <option value="mensual">mensual</option>
-            </select>
-            <input type="text" id="filter">
-
-
-            <hr>
-
-
-            <input type="text" id="tarea">
-            <select id="prioridad">
-                <option value="">Seleccione una prioridad</option>
-                <option value="urgente">urgente</option>
-                <option value="diaria">diaria</option>
-                <option value="mensual">mensual</option>
-            </select>
-            <button>Guardar</button>
-        </nav>
+        <div class="wrapper">
+            <nav class="to-do">
+                <input type="text" id="newTask">
+                <select id="priority">
+                    <option value="urgente">Urgente</option>
+                </select>
+                <div class="addTask">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </nav>
+        </div>
     </header>
     <main>
-        <section id="to-doList">
-            <article class="to-do">
-                <h2>Tarea</h2>
-                <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
-            </article>
-        </section>
+        <div class="wrapper">
+            <section id="to-doList">
+                <article class="to-do">
+                    <h2>Tarea</h2>
+                    <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
+                </article>
+            </section>
+        </div>
     </main>
     <script src="./js/controller.js"></script>
     <script src="./js/view.js"></script>

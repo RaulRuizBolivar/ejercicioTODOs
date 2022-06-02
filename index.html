@@ -15,16 +15,20 @@
 </head>
 
 <body>
-
+    <div class="background"></div>
     <header>
         <div class="wrapper">
             <nav class="to-do">
-                <input type="text" id="newTask">
-                <select id="priority">
-                    <option value="urgente">Urgente</option>
-                </select>
-                <div class="addTask">
-                    <i class="fa-solid fa-plus"></i>
+                <input type="text" id="newTask" placeholder="Nueva tarea">
+                <div class="right">
+                    <select class="urgente" id="priority">
+                        <option value="urgente">Urgente</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="diaria">Diaria</option>
+                    </select>
+                    <div class="addTask">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -33,8 +37,46 @@
         <div class="wrapper">
             <section id="to-doList">
                 <article class="to-do">
-                    <h2>Tarea</h2>
-                    <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
+                    <div class="left">
+                        <input type="checkbox" id="completadaX">
+                        <h2><label for="completadaX">Tarea</label></h2>
+                    </div>
+                    <div class="right">
+                        <select id="tareaX" class="diaria">
+                            <option value="diaria">Diaria</option>
+                            <option value="urgente">Urgente</option>
+                            <option value="mensual">Mensual</option>
+                        </select>
+                        <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
+                    </div>
+                </article>
+                <article class="to-do">
+                    <div class="left">
+                        <input type="checkbox" id="completadaX">
+                        <h2><label for="completadaX">Tarea</label></h2>
+                    </div>
+                    <div class="right">
+                        <select id="tareaX" class="diaria">
+                            <option value="diaria">Diaria</option>
+                            <option value="urgente">Urgente</option>
+                            <option value="mensual">Mensual</option>
+                        </select>
+                        <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
+                    </div>
+                </article>
+                <article class="to-do">
+                    <div class="left">
+                        <input type="checkbox" id="completadaX">
+                        <h2><label for="completadaX">Tarea</label></h2>
+                    </div>
+                    <div class="right">
+                        <select id="tareaX" class="diaria">
+                            <option value="diaria">Diaria</option>
+                            <option value="urgente">Urgente</option>
+                            <option value="mensual">Mensual</option>
+                        </select>
+                        <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
+                    </div>
                 </article>
             </section>
         </div>

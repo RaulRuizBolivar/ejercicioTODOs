@@ -12,13 +12,33 @@ img{
 
 :root{
     --margenGeneral: 10px;
-    --fondoTransparente : rgba(0, 0, 0, 0.7);
+    --fondo : #18181A;
     --fuentePrincipal: 'Signika', sans-serif;
 }
-
+.urgente{
+    color: #FF5733;
+}
+.mensual{
+    color:#F1C40F;
+}
+.diaria{
+    color: #ABEBC6;
+}
+div.background {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    filter: blur(4px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('https://images.unsplash.com/photo-1461301214746-1e109215d6d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+}
 body{
     font-family: var(--fuentePrincipal);
-    background-image: url('https://images.wallpaperscraft.com/image/single/utah_bryce_canyon_landscape_beautifully_96274_3840x2160.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,8 +51,109 @@ body{
     margin: 0 auto;
 }
 
-/*Fin variables generales*/
-
-
 /* header */
+header{
+    color: white;
+    padding-top: var(--margenGeneral);
+}
+header .to-do{
+    padding: calc(var(--margenGeneral) * 2);
+    display: flex;
+    background-color: var(--fondo);
+    justify-content: space-between;
+    border-radius: 5px;
+}
+header .to-do .right{
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+select , input{
+    background-color: var(--fondo);
+    border: none;
+    padding: var(--margenGeneral);
+    margin-right: var(--margenGeneral);
+    font-size: 105%;
+}
+select{
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+}
+header .to-do :is(select , input):focus-visible{
+  outline: none;
+}
+header .to-do input{
+    color: white;
+    width: calc(100% - var(--margenGeneral));
+}
+header .to-do .addTask{
+    padding: var(--margenGeneral);
+    cursor: pointer;
+}
 
+/* Inicio Main*/
+
+#to-doList{
+    padding-top: calc(var(--margenGeneral)* 3);
+}
+#to-doList .to-do{
+    margin-top: var(--margenGeneral);
+    padding: var(--margenGeneral);
+    display: flex;
+    background-color: var(--fondo);
+    justify-content: space-between;
+    border-radius: 5px;
+}
+#to-doList .to-do :is(.left , .right){
+    display: flex;
+    align-items: center;
+}
+#to-doList .to-do .left{
+    margin-right: var(--margenGeneral);
+    width: calc(100% - var(--margenGeneral));
+}
+#to-doList .to-do :is(h2,i){
+    padding: var(--margenGeneral);
+}
+#to-doList .to-do input[type="checkbox"] {
+    cursor: pointer;
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--fondo);
+    color: white;
+    width: calc(var(--margenGeneral) * 0.8);
+    height: calc(var(--margenGeneral) * 0.8);
+    border: 2px solid white;
+    border-radius: 0.15em;
+    position: relative;
+}
+#to-doList .to-do input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0.3em;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    display: block;
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em white;
+}
+#to-doList .to-do input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+#to-doList .to-do h2{
+    color: white;
+}
+#to-doList .to-do div i{
+    cursor: pointer;
+    color: tomato;
+    transition: .3s;
+}
+#to-doList .to-do div:hover i{
+    color: red;
+}

@@ -19,6 +19,8 @@ export default class Task {
         let divDelete = document.createElement( 'div' )
         let iconDelete = document.createElement( 'i' )
 
+
+        inputCheck.dataset.selectClass = this.priority
         inputCheck.addEventListener( 'change', this.complete )
 
         article.classList.add( 'to-do' )
@@ -37,6 +39,7 @@ export default class Task {
         if ( this.completed ) {
             inputCheck.checked = true
             label.classList.add( 'tachada' )
+            iconEdit.classList.add( 'gris' )
             select.disabled = true
             select.classList.remove( this.priority )
         }
@@ -58,12 +61,22 @@ export default class Task {
         divRight.append( select, divDelete )
         article.append( divLeft, divRight )
         dom.appendChild( article )
-        console.log( select.value )
     }
     editPriority () { }
-    editTitle () { }
     complete ( event ) {
-
+        this.completed = event.target.checked
+        const select = event.target.parentNode.parentNode.childNodes[ 1 ].childNodes[ 0 ]
+        const label = event.target.parentNode.childNodes[ 1 ].childNodes[ 0 ]
+        select.disabled = false
+        select.classList.remove( 'gris' )
+        select.classList.add( event.target.dataset.selectClass )
+        label.classList.remove( 'tachada' )
+        if ( this.completed ) {
+            select.disabled = true
+            select.classList.add( 'gris' )
+            select.classList.remove( event.target.dataset.selectClass )
+            label.classList.add( 'tachada' )
+        }
     }
     delete () {
 

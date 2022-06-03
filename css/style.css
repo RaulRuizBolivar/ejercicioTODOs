@@ -24,6 +24,9 @@ img{
 .diaria{
     color: #ABEBC6;
 }
+i{
+    color: white;
+}
 div.background {
     position: fixed;
     left: 0px;
@@ -72,7 +75,6 @@ select , input{
     background-color: var(--fondo);
     border: none;
     padding: var(--margenGeneral);
-    margin-right: var(--margenGeneral);
     font-size: 105%;
     text-transform: capitalize;
 }
@@ -80,7 +82,6 @@ select{
     -moz-appearance:none; /* Firefox */
     -webkit-appearance:none; /* Safari and Chrome */
     appearance:none;
-    color: gray;
 }
 header .to-do :is(select , input):focus-visible{
   outline: none;
@@ -151,7 +152,7 @@ header .to-do .addTask{
 #to-doList .to-do h2{
     color: white;
 }
-#to-doList .to-do div i{
+#to-doList .to-do div.delete i{
     cursor: pointer;
     color: tomato;
     transition: .3s;
@@ -160,6 +161,9 @@ header .to-do .addTask{
     color: red;
 }
 
+.gris{
+    color: grey;
+}
 .tachada{
     text-decoration: line-through solid grey;
     text-decoration-thickness: 2px;

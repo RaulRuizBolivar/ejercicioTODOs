@@ -74,11 +74,13 @@ select , input{
     padding: var(--margenGeneral);
     margin-right: var(--margenGeneral);
     font-size: 105%;
+    text-transform: capitalize;
 }
 select{
     -moz-appearance:none; /* Firefox */
     -webkit-appearance:none; /* Safari and Chrome */
     appearance:none;
+    color: gray;
 }
 header .to-do :is(select , input):focus-visible{
   outline: none;
@@ -154,6 +156,12 @@ header .to-do .addTask{
     color: tomato;
     transition: .3s;
 }
-#to-doList .to-do div:hover i{
+#to-doList .to-do div.delete:hover i{
     color: red;
+}
+
+.tachada{
+    text-decoration: line-through solid grey;
+    text-decoration-thickness: 2px;
+    color: grey;
 }

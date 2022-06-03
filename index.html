@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,6 +36,7 @@
     <main>
         <div class="wrapper">
             <section id="to-doList">
+                <!--
                 <article class="to-do">
                     <div class="left">
                         <input type="checkbox" id="completadaX">
@@ -43,6 +44,22 @@
                     </div>
                     <div class="right">
                         <select id="tareaX" class="diaria">
+                            <option value="diaria">Diaria</option>
+                            <option value="urgente">Urgente</option>
+                            <option value="mensual">Mensual</option>
+                        </select>
+                        <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
+                    </div>
+                </article>
+                <article class="to-do">
+                    <div class="left">
+                        <input type="checkbox" id="completadaX">
+                        <h2>
+                            <label class="tachada" for="completadaX">Tarea</label>
+                        </h2>
+                    </div>
+                    <div class="right">
+                        <select id="tareaX" disabled>
                             <option value="diaria">Diaria</option>
                             <option value="urgente">Urgente</option>
                             <option value="mensual">Mensual</option>
@@ -64,25 +81,12 @@
                         <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
                     </div>
                 </article>
-                <article class="to-do">
-                    <div class="left">
-                        <input type="checkbox" id="completadaX">
-                        <h2><label for="completadaX">Tarea</label></h2>
-                    </div>
-                    <div class="right">
-                        <select id="tareaX" class="diaria">
-                            <option value="diaria">Diaria</option>
-                            <option value="urgente">Urgente</option>
-                            <option value="mensual">Mensual</option>
-                        </select>
-                        <div class="delete"><i class="fa-solid fa-trash-can"></i></div>
-                    </div>
-                </article>
+                -->
             </section>
         </div>
     </main>
     <script src="./js/controller.js"></script>
-    <script src="./js/view.js"></script>
+    <script src="./js/view.js" type="module"></script>
 </body>
 
 </html>

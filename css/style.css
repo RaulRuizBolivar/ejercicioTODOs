@@ -65,10 +65,24 @@ header .to-do{
     background-color: var(--fondo);
     justify-content: space-between;
     border-radius: 5px;
+    width: 100%;
+    align-items: center;
 }
 header .to-do .right{
     display: inline-block;
     display: flex;
+    align-items: center;
+}
+header .wrapper{
+    display: flex;
+}
+header aside{
+    width: 90px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: var(--fondo);
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 select , input{
@@ -171,4 +185,7 @@ header .to-do .addTask{
     text-decoration: line-through solid grey;
     text-decoration-thickness: 2px;
     color: grey;
+}
+body header .desaparecer{
+    display: none;
 }

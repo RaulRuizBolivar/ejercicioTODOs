@@ -10,6 +10,7 @@ list.add( new Task( 'Cambiar la arena de peque', 'diaria' ) )
 list.add( new Task( 'Callar a Alejandro', 'urgente' ) )
 btnAddTask.addEventListener( 'click', captureTask )
 document.addEventListener( 'keydown', captureTask )
+selectTask.addEventListener( 'change', changeColor )
 list.print( sectionTask )
 
 
@@ -19,6 +20,19 @@ function captureTask ( event ) {
         inputTask.value = ''
     }
 }
+
+function changeColor ( event ) {
+    event.target.className = event.target.value
+}
+
+
+
+
+
+
+
+
+
 
 
 export default list

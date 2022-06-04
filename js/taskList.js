@@ -14,7 +14,6 @@ export default class TaskList {
     }
     remove ( task ) {
         let taskToRemove = this.list.findIndex( taskToDelete => taskToDelete.id === Number( task.target.dataset.id ) )
-        console.log( taskToRemove )
         this.list.splice( taskToRemove, 1 )
         this.print( this.domList )
     }

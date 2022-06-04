@@ -66,6 +66,7 @@ header .to-do{
     justify-content: space-between;
     border-radius: 5px;
     width: 100%;
+    align-items: center;
 }
 header .to-do .right{
     display: inline-block;
@@ -184,4 +185,7 @@ header .to-do .addTask{
     text-decoration: line-through solid grey;
     text-decoration-thickness: 2px;
     color: grey;
+}
+body header .desaparecer{
+    display: none;
 }

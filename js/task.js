@@ -1,3 +1,4 @@
+import list from "./main.js"
 export default class Task {
     constructor ( title, priority ) {
         this.id = this.createId( title + priority )
@@ -29,8 +30,9 @@ export default class Task {
         let divDelete = document.createElement( 'div' )
         let iconDelete = document.createElement( 'i' )
 
-        //divDelete.addEventListener( 'click', launchRemove( this.id ) )
+        divDelete.addEventListener( 'click', ( event ) => list.remove( event ) )
         inputCheck.dataset.selectClass = this.priority
+        iconDelete.dataset.id = this.id
         inputCheck.addEventListener( 'change', this.complete )
         select.addEventListener( 'change', this.editPriority )
 

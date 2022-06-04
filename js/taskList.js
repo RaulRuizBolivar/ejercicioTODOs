@@ -1,18 +1,21 @@
 export default class TaskList {
-    constructor ( dom ) {
+    constructor ( domList, domNew ) {
         this.list = []
-        this.dom = dom
+        this.domList = domList
     }
-    print ( dom ) {
-        dom.innerText = ''
-        this.list.forEach( task => task.print( dom ) )
+
+    print ( domList ) {
+        domList.innerText = ''
+        this.list.forEach( task => task.print( domList ) )
     }
     add ( Task ) {
         this.list.push( Task )
-        this.print( this.dom )
+        this.print( this.domList )
     }
-    remove ( idTask ) {
-        let taskToRemove = this.list.findIndex( task => task.id === idTask )
+    remove ( task ) {
+        let taskToRemove = this.list.findIndex( taskToDelete => taskToDelete.id === Number( task.target.dataset.id ) )
+        console.log( taskToRemove )
         this.list.splice( taskToRemove, 1 )
+        this.print( this.domList )
     }
 }

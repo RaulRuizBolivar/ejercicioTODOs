@@ -40,7 +40,7 @@ export default class Task {
         divLeft.classList.add( 'left' )
         inputCheck.id = 'completada' + this.id
         inputCheck.type = 'checkbox'
-        label.for = inputCheck.id
+        label.htmlFor = inputCheck.id
         divRight.classList.add( 'right' )
         select.id = 'tarea' + this.id
         select.classList.add( this.priority )

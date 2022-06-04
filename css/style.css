@@ -85,6 +85,9 @@ header aside{
     justify-content: center;
     align-items: center;
 }
+header aside i , select{
+    cursor: pointer;
+}
 select , input{
     background-color: var(--fondo);
     border: none;

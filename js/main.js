@@ -5,6 +5,7 @@ let btnAddTask = document.querySelector( '.addTask' )
 let inputTask = document.querySelector( 'header .to-do input#newTask' )
 let inputFilter = document.querySelector( 'header nav.to-do input#search' )
 let selectTask = document.querySelector( '#priority' )
+let filterSelectTask = document.querySelector( '#filterByPriority' )
 let navs = document.querySelectorAll( 'header nav' )
 let iconPlus = document.querySelector( 'header aside i.fa-plus' )
 let iconFilter = document.querySelector( 'header aside i.fa-filter' )
@@ -12,12 +13,13 @@ iconPlus.addEventListener( 'click', toggleNav )
 iconFilter.addEventListener( 'click', toggleNav )
 let list = new TaskList( sectionTask )
 list.add( new Task( 'Llevar a Kira al campo', 'mensual' ) )
-list.add( new Task( 'Cambiar la arena de peque', 'diaria' ) )
+list.add( new Task( 'Cambiar la arena de Pequeñaja', 'diaria' ) )
 list.add( new Task( 'Callar a Alejandro', 'urgente' ) )
 btnAddTask.addEventListener( 'click', captureTask )
 document.addEventListener( 'keydown', captureTask )
 selectTask.addEventListener( 'change', changeColor )
 inputFilter.addEventListener( 'input', captureSearch )
+filterSelectTask.addEventListener( 'change', capturePriority )
 list.print( sectionTask )
 
 //Reseteo de los valores de los inputs y cambio de color del select
@@ -32,7 +34,10 @@ function captureTask ( event ) {
     }
 }
 function captureSearch ( event ) {
-    list.filterByCategory( event.target.value )
+    list.filterBySearch( event.target.value )
+}
+function capturePriority ( event ) {
+    list.filterByPriority( event.target.value )
 }
 function changeColor ( event ) {
     event.target.className = event.target.value

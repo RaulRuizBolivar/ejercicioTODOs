@@ -17,12 +17,16 @@ export default class TaskList {
         this.list.splice( taskToRemove, 1 )
         this.print( this.dom )
     }
-    filterByCategory ( search ) {
+    filterBySearch ( search ) {
         if ( search ) {
             let listaFiltrada = this.list.filter( task => task.title.toLowerCase().includes( search ) )
             this.print( this.dom, listaFiltrada )
         } else {
             this.print( this.dom )
         }
+    }
+    filterByPriority ( priority ) {
+        let listaFiltrada = this.list.filter( task => task.priority === priority )
+        this.print( this.dom, listaFiltrada )
     }
 }

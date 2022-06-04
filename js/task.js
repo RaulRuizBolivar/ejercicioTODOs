@@ -1,9 +1,19 @@
 export default class Task {
     constructor ( title, priority ) {
-        this.id = 1
+        this.id = this.createId( title + priority )
         this.title = title
         this.priority = priority
         this.completed = false
+    }
+    createId ( titlePriority ) {
+        let id = 0;
+        if ( titlePriority.length == 0 ) return id;
+        for ( let i = 0; i < titlePriority.length; i++ ) {
+            let char = titlePriority.charCodeAt( i );
+            id = ( ( id << 5 ) - id ) + char;
+            id = id & id;
+        }
+        return id;
     }
     print ( dom ) {
         let article = document.createElement( 'article' )
@@ -19,9 +29,10 @@ export default class Task {
         let divDelete = document.createElement( 'div' )
         let iconDelete = document.createElement( 'i' )
 
-
+        //divDelete.addEventListener( 'click', launchRemove( this.id ) )
         inputCheck.dataset.selectClass = this.priority
         inputCheck.addEventListener( 'change', this.complete )
+        select.addEventListener( 'change', this.editPriority )
 
         article.classList.add( 'to-do' )
         divLeft.classList.add( 'left' )
@@ -62,7 +73,11 @@ export default class Task {
         article.append( divLeft, divRight )
         dom.appendChild( article )
     }
-    editPriority () { }
+    editPriority ( event ) {
+        event.target.className = event.target.value
+        this.priority = event.target.value
+        console.log( this.priority )
+    }
     complete ( event ) {
         this.completed = event.target.checked
         const select = event.target.parentNode.parentNode.childNodes[ 1 ].childNodes[ 0 ]
@@ -77,8 +92,5 @@ export default class Task {
             select.classList.remove( event.target.dataset.selectClass )
             label.classList.add( 'tachada' )
         }
-    }
-    delete () {
-
     }
 }

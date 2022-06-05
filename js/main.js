@@ -46,6 +46,7 @@ function captureSearch ( event ) {
 }
 function capturePriority ( event ) {
     list.filterByPriority( event.target.value )
+    changeColor( event )
 }
 function changeColor ( event ) {
     event.target.className = event.target.value

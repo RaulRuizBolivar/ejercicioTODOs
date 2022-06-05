@@ -1,10 +1,10 @@
 export default class TaskList {
-    constructor ( dom ) {
-        this.list = []
+    constructor ( dom, list ) {
+        this.list = list
         this.dom = dom
     }
 
-    print ( dom, list = this.list ) {
+    print ( dom = this.dom, list = this.list ) {
         dom.innerText = ''
         list.forEach( task => task.print( dom ) )
     }

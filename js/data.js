@@ -1,14 +1,9 @@
+import Task from "./task.js";
+
 let data = [
-    {
-        title: 'Llevar a Kira al campo',
-        priority: 'mensual'
-    },
-    {
-        title: 'Cambiar la arena de Pequeñaja',
-        priority: 'diaria'
-    },
-    {
-        title: 'Callar a Alejandro',
-        priority: 'urgente'
-    },
+    new Task( 'Llevar a Kira al campo', 'mensual' ),
+    new Task( 'Cambiar la arena a Pequeñaja', 'diaria' ),
+    new Task( 'Callar a Alejandro', 'urgente' )
 ]
+
+export default data

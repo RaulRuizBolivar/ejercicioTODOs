@@ -1,6 +1,7 @@
 //Importamos las clases
 import Task from "./task.js";
 import TaskList from "./taskList.js";
+import data from './data.js'
 
 //capturamos los elementos
 let sectionTask = document.querySelector( '#to-doList' )
@@ -23,9 +24,8 @@ inputFilter.addEventListener( 'input', captureSearch )
 filterSelectTask.addEventListener( 'change', capturePriority )
 
 
-let list = new TaskList( sectionTask )
-data.forEach( task => { list.add( new Task( task.title, task.priority ) ) } )
-list.print( sectionTask )
+let list = new TaskList( sectionTask, data )
+list.print()
 list.addLocalStorage()
 
 

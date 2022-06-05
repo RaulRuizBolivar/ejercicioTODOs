@@ -4,7 +4,6 @@ export default class TaskList {
     constructor ( dom, list ) {
         this.list = []
         this.dom = dom
-        console.log( localStorage.getItem( 'Tasks_' ) )
         if ( this.updateListFromLocalStorage() === null ) {
             this.upgradeLocalStorage( list, dom )
         } else {
@@ -28,7 +27,6 @@ export default class TaskList {
         let listLocal = JSON.parse( localStorage.getItem( 'Tasks_' ) )
         if ( listLocal !== null ) {
             listLocal.forEach( task => {
-                console.log( new Task( task.title, task.priority, task.completed ) )
                 this.add( new Task( task.title, task.priority ) )
             } )
         }

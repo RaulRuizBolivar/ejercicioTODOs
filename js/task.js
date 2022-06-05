@@ -59,9 +59,9 @@ export default class Task {
 
 
         label.innerText = this.title
-        optionDiaria.innerText = 'diaria'
-        optionUrgente.innerText = 'urgente'
-        optionMensual.innerText = 'mensual'
+        optionDiaria.innerText = 'Diaria'
+        optionUrgente.innerText = 'Urgente'
+        optionMensual.innerText = 'Mensual'
 
 
 

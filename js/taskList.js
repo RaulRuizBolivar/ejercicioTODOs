@@ -4,7 +4,8 @@ export default class TaskList {
     constructor ( dom, list ) {
         this.list = []
         this.dom = dom
-        if ( this.updateListFromLocalStorage() ) {
+        console.log( localStorage.getItem( 'Tasks_' ) )
+        if ( this.updateListFromLocalStorage() === null ) {
             this.upgradeLocalStorage( list, dom )
         } else {
             this.print()
@@ -19,20 +20,23 @@ export default class TaskList {
         this.list.push( Task )
         this.upgradeLocalStorage( this.list )
     }
-    upgradeLocalStorage ( list, dom = this.dom ) {
+    upgradeLocalStorage ( list ) {
         localStorage.setItem( 'Tasks_', JSON.stringify( list ) )
         this.print()
     }
     updateListFromLocalStorage () {
         let listLocal = JSON.parse( localStorage.getItem( 'Tasks_' ) )
-        listLocal.forEach( task => {
-            console.log( new Task( task.title, task.priority ) )
-            this.add( new Task( task.title, task.priority ) )
-        } )
+        if ( listLocal !== null ) {
+            listLocal.forEach( task => {
+                console.log( new Task( task.title, task.priority, task.completed ) )
+                this.add( new Task( task.title, task.priority ) )
+            } )
+        }
     }
     remove ( task ) {
         let taskToRemove = this.list.findIndex( taskToDelete => taskToDelete.id === Number( task.target.dataset.id ) )
         this.list.splice( taskToRemove, 1 )
+        this.upgradeLocalStorage( this.list )
         this.print( this.dom )
     }
     filterBySearch ( search ) {

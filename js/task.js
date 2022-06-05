@@ -1,10 +1,10 @@
 import list from "./main.js"
 export default class Task {
-    constructor ( title, priority ) {
+    constructor ( title, priority, completed = false ) {
         this.id = this.createId( title + priority )
         this.title = title
         this.priority = priority
-        this.completed = false
+        this.completed = completed
     }
     createId ( titlePriority ) {
         let id = 0;
@@ -78,7 +78,8 @@ export default class Task {
     editPriority ( event ) {
         event.target.className = event.target.value
         this.priority = event.target.value
-
+        console.log( list.list )
+        //list.upgradeLocalStorage( list.list )
     }
     complete ( event ) {
         this.completed = event.target.checked

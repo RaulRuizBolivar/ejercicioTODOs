@@ -25,7 +25,6 @@ filterSelectTask.addEventListener( 'change', capturePriority )
 
 
 let list = new TaskList( sectionTask, data )
-list.print()
 
 
 

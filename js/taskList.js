@@ -1,5 +1,6 @@
 export default class TaskList {
     constructor ( dom, list ) {
+        this.addLocalStorage( list )
         this.list = list
         this.dom = dom
     }
@@ -13,8 +14,8 @@ export default class TaskList {
         this.addLocalStorage()
         this.print( this.dom )
     }
-    addLocalStorage () {
-        localStorage.setItem( 'taskList', JSON.stringify( this.list ) )
+    addLocalStorage ( list ) {
+        localStorage.setItem( 'Tasks_', JSON.stringify( list ) )
     }
     remove ( task ) {
         let taskToRemove = this.list.findIndex( taskToDelete => taskToDelete.id === Number( task.target.dataset.id ) )

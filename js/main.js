@@ -26,7 +26,7 @@ filterSelectTask.addEventListener( 'change', capturePriority )
 
 let list = new TaskList( sectionTask, data )
 list.print()
-list.addLocalStorage()
+
 
 
 //Reseteo de los valores de los inputs y cambio de color del select

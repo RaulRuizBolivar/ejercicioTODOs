@@ -10,16 +10,23 @@ export default class TaskList {
     }
     add ( Task ) {
         this.list.push( Task )
+        this.addLocalStorage()
         this.print( this.dom )
+    }
+    addLocalStorage () {
+        localStorage.setItem( 'taskList', JSON.stringify( this.list ) )
     }
     remove ( task ) {
         let taskToRemove = this.list.findIndex( taskToDelete => taskToDelete.id === Number( task.target.dataset.id ) )
         this.list.splice( taskToRemove, 1 )
         this.print( this.dom )
     }
+    removeLocalStorage () {
+
+    }
     filterBySearch ( search ) {
         if ( search ) {
-            let listaFiltrada = this.list.filter( task => task.title.toLowerCase().includes( search ) )
+            let listaFiltrada = this.list.filter( task => task.title.toLowerCase().includes( search.toLowerCase() ) )
             this.print( this.dom, listaFiltrada )
         } else {
             this.print( this.dom )

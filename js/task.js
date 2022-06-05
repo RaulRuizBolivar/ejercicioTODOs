@@ -78,7 +78,7 @@ export default class Task {
     editPriority ( event ) {
         event.target.className = event.target.value
         this.priority = event.target.value
-        console.log( this.priority )
+
     }
     complete ( event ) {
         this.completed = event.target.checked

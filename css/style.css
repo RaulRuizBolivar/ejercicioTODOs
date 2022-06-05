@@ -84,7 +84,6 @@ select , input{
     border: none;
     padding: var(--margenGeneral);
     font-size: 105%;
-    text-transform: capitalize;
 }
 #newTask:focus{
     text-transform: none;
@@ -93,6 +92,7 @@ select{
     -moz-appearance:none; /* Firefox */
     -webkit-appearance:none; /* Safari and Chrome */
     appearance:none;
+    text-transform: capitalize;
 }
 header .to-do :is(select , input):focus-visible{
   outline: none;
@@ -188,5 +188,9 @@ body header .desaparecer{
 @media(max-width :768px){
     body{
         font-size: 85%;
+    }
+    #to-doList .to-do input[type="checkbox"]::before {
+        width: 0.85em;
+        height: 0.85em;
     }
 }

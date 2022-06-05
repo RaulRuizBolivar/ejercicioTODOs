@@ -6,6 +6,7 @@ export default class TaskList {
         this.dom = dom
         if ( this.updateListFromLocalStorage() === null ) {
             this.upgradeLocalStorage( list, dom )
+            this.print()
         } else {
             this.print()
         }

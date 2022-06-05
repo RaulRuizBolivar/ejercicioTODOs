@@ -39,6 +39,7 @@ export default class Task {
         article.classList.add( 'to-do' )
         divLeft.classList.add( 'left' )
         inputCheck.id = 'completada' + this.id
+        inputCheck.dataset.id = this.id
         inputCheck.type = 'checkbox'
         label.htmlFor = inputCheck.id
         divRight.classList.add( 'right' )
@@ -52,7 +53,6 @@ export default class Task {
         if ( this.completed ) {
             inputCheck.checked = true
             label.classList.add( 'tachada' )
-            iconEdit.classList.add( 'gris' )
             select.disabled = true
             select.classList.remove( this.priority )
         }
@@ -95,5 +95,12 @@ export default class Task {
             select.classList.remove( event.target.dataset.selectClass )
             label.classList.add( 'tachada' )
         }
+        console.log( this.dataset.id )
+        let taskToUpdate = list.list.findIndex( Task => Task.id === Number( this.dataset.id ) )
+        list.list[ taskToUpdate ].completed = this.completed
+        console.log( list.list )
+        console.log( JSON.parse( localStorage.getItem( 'Tasks_' ) ) )
+        list.upgradeLocalStorage( list.list )
+        list.updateListFromLocalStorage()
     }
 }

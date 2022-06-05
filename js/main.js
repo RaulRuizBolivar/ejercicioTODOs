@@ -72,11 +72,4 @@ function toggleNav ( event ) {
 
 
 
-
-
-
-
-
-
-
 export default list

@@ -189,4 +189,8 @@ body header .desaparecer{
     body{
         font-size: 85%;
     }
+    #to-doList .to-do input[type="checkbox"]::before {
+        width: 0.85em;
+        height: 0.85em;
+    }
 }

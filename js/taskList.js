@@ -2,7 +2,7 @@ import Task from "./task.js"
 
 export default class TaskList {
     constructor ( dom, list ) {
-        this.list = []
+        this.list = list
         this.dom = dom
         if ( this.updateListFromLocalStorage() === null ) {
             this.upgradeLocalStorage( list, dom )
@@ -10,6 +10,7 @@ export default class TaskList {
         } else {
             this.print()
         }
+        console.log( this.updateListFromLocalStorage() )
     }
 
     print ( dom = this.dom, list = this.list ) {
@@ -27,10 +28,13 @@ export default class TaskList {
     updateListFromLocalStorage () {
         let listLocal = JSON.parse( localStorage.getItem( 'Tasks_' ) )
         if ( listLocal !== null ) {
+            this.list = []
+            this.upgradeLocalStorage( this.list )
             listLocal.forEach( task => {
                 this.add( new Task( task.title, task.priority ) )
             } )
         }
+        this.print()
     }
     remove ( task ) {
         let taskToRemove = this.list.findIndex( taskToDelete => taskToDelete.id === Number( task.target.dataset.id ) )

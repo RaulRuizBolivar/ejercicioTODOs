@@ -95,12 +95,10 @@ export default class Task {
             select.classList.remove( event.target.dataset.selectClass )
             label.classList.add( 'tachada' )
         }
-        console.log( this.dataset.id )
         let taskToUpdate = list.list.findIndex( Task => Task.id === Number( this.dataset.id ) )
         list.list[ taskToUpdate ].completed = this.completed
         console.log( list.list )
-        console.log( JSON.parse( localStorage.getItem( 'Tasks_' ) ) )
-        list.upgradeLocalStorage( list.list )
         list.updateListFromLocalStorage()
+        list.upgradeLocalStorage( list.list )
     }
 }

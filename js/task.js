@@ -52,6 +52,7 @@ export default class Task {
         divDelete.classList.add( 'delete' )
         iconDelete.classList.add( "fa-solid", "fa-trash-can" )
         if ( this.completed ) {
+            console.log( this.completed )
             inputCheck.checked = true
             label.classList.add( 'tachada' )
             select.disabled = true
@@ -80,8 +81,6 @@ export default class Task {
         event.target.className = event.target.value
         let posicion = list.list.findIndex( Task => Task.id === Number( this.dataset.id ) )
         list.list[ posicion ].priority = event.target.value
-        console.log( list.list[ posicion ].priority )
-        console.log( list.list )
         list.upgradeData()
     }
     complete ( event ) {

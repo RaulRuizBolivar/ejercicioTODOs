@@ -6,7 +6,7 @@ export default class TaskList {
         this.dom = dom
 
         this.print()
-        console.log( this.list )
+        this.list.forEach( task => console.log( task.completed ) )
     }
 
     print ( list = this.list, dom = this.dom ) {
@@ -24,9 +24,10 @@ export default class TaskList {
                 let listLocal = JSON.parse( localStorage.getItem( 'Tasks_' ) );
                 let listNew = []
                 listLocal.forEach( task => {
-                    listNew.push( new Task( task.title, task.priority ) )
+                    listNew.push( new Task( task.title, task.priority, task.completed ) )
                 } )
                 this.list = listNew
+                console.log( listNew )
                 return listNew
             }
         } else {
@@ -35,6 +36,7 @@ export default class TaskList {
         }
     }
     upgradeData ( list = this.list ) {
+        console.log( list )
         localStorage.setItem( 'Tasks_', JSON.stringify( list ) )
     }
     remove ( task ) {

@@ -7,14 +7,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TO-DO</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/model.js"></script>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-
-
-    <script src="./js/controller.js"></script>
-    <script src="./js/view.js"></script>
+    <header>
+        <div class="wrapper">
+            <nav class="to-do">
+                <div class="addTask">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <input type="text" id="newTask" placeholder="Nueva Tarea">
+                <div class="right">
+                    <select class="urgente" id="priority">
+                        <option value="urgente">Urgente</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="diaria">Diaria</option>
+                    </select>
+                </div>
+            </nav>
+            <nav class="to-do desaparecer">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="search" placeholder="Filtrar por tarea">
+                <select class="" id="filterByPriority">
+                    <option value="">Prioridad</option>
+                    <option value="urgente">Urgente</option>
+                    <option value="mensual">Mensual</option>
+                    <option value="diaria">Diaria</option>
+                </select>
+            </nav>
+            <aside>
+                <i class="fa-solid fa-plus desaparecer"></i>
+                <i class="fa-solid fa-filter"></i>
+            </aside>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <section id="to-doList">
+                <!--
+                Tareas
+                -->
+            </section>
+        </div>
+    </main>
+    <script src="./js/main.js" type="module"></script>
 </body>
 
 </html>

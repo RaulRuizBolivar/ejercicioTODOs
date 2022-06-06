@@ -1,46 +1,48 @@
 import Task from "./task.js"
 
 export default class TaskList {
-    constructor ( dom, list ) {
-        this.list = list
+    constructor ( list, dom ) {
+        this.list = this.updateData( list )
         this.dom = dom
-        if ( this.updateListFromLocalStorage() === null ) {
-            this.upgradeLocalStorage( list, dom )
-            this.print()
-        } else {
-            this.print()
-        }
-        console.log( this.updateListFromLocalStorage() )
+
+        this.print()
+        console.log( this.list )
     }
 
-    print ( dom = this.dom, list = this.list ) {
+    print ( list = this.list, dom = this.dom ) {
         dom.innerText = ''
         list.forEach( task => task.print( dom ) )
     }
     add ( Task ) {
         this.list.push( Task )
-        this.upgradeLocalStorage( this.list )
-    }
-    upgradeLocalStorage ( list ) {
-        localStorage.setItem( 'Tasks_', JSON.stringify( list ) )
+        this.upgradeData()
         this.print()
     }
-    updateListFromLocalStorage () {
-        let listLocal = JSON.parse( localStorage.getItem( 'Tasks_' ) )
-        if ( listLocal !== null ) {
-            this.list = []
-            this.upgradeLocalStorage( this.list )
-            listLocal.forEach( task => {
-                this.add( new Task( task.title, task.priority ) )
-            } )
+    updateData ( list = this.list ) {
+        if ( localStorage.getItem( 'Tasks_' ) !== null ) {
+            if ( JSON.parse( localStorage.getItem( 'Tasks_' ) ) != this.list ) {
+                let listLocal = JSON.parse( localStorage.getItem( 'Tasks_' ) );
+                let listNew = []
+                listLocal.forEach( task => {
+                    listNew.push( new Task( task.title, task.priority ) )
+                } )
+                this.list = listNew
+                return listNew
+            }
+        } else {
+            localStorage.setItem( 'Tasks_', JSON.stringify( list ) )
+            return list
         }
-        this.print()
+    }
+    upgradeData ( list = this.list ) {
+        localStorage.setItem( 'Tasks_', JSON.stringify( list ) )
     }
     remove ( task ) {
         let taskToRemove = this.list.findIndex( taskToDelete => taskToDelete.id === Number( task.target.dataset.id ) )
         this.list.splice( taskToRemove, 1 )
-        this.upgradeLocalStorage( this.list )
-        this.print( this.dom )
+        console.log( this.list )
+        this.upgradeData()
+        this.print()
     }
     filterBySearch ( search ) {
         if ( search ) {
@@ -55,3 +57,6 @@ export default class TaskList {
         this.print( this.dom, listaFiltrada )
     }
 }
+
+
+

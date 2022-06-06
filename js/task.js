@@ -45,6 +45,7 @@ export default class Task {
         divRight.classList.add( 'right' )
         select.id = 'tarea' + this.id
         select.classList.add( this.priority )
+        select.dataset.id = this.id
         optionDiaria.value = 'diaria'
         optionUrgente.value = 'urgente'
         optionMensual.value = 'mensual'
@@ -77,9 +78,11 @@ export default class Task {
     }
     editPriority ( event ) {
         event.target.className = event.target.value
-        this.priority = event.target.value
+        let posicion = list.list.findIndex( Task => Task.id === Number( this.dataset.id ) )
+        list.list[ posicion ].priority = event.target.value
+        console.log( list.list[ posicion ].priority )
         console.log( list.list )
-        //list.upgradeLocalStorage( list.list )
+        list.upgradeData()
     }
     complete ( event ) {
         this.completed = event.target.checked
@@ -95,10 +98,10 @@ export default class Task {
             select.classList.remove( event.target.dataset.selectClass )
             label.classList.add( 'tachada' )
         }
-        let taskToUpdate = list.list.findIndex( Task => Task.id === Number( this.dataset.id ) )
-        list.list[ taskToUpdate ].completed = this.completed
+        let posicion = list.list.findIndex( Task => Task.id === Number( this.dataset.id ) )
+        list.list[ posicion ].completed = this.completed
+        console.log( list.list[ posicion ].completed )
         console.log( list.list )
-        list.updateListFromLocalStorage()
-        list.upgradeLocalStorage( list.list )
+        list.upgradeData( list.list )
     }
 }

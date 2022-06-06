@@ -24,7 +24,7 @@ inputFilter.addEventListener( 'input', captureSearch )
 filterSelectTask.addEventListener( 'change', capturePriority )
 
 
-let list = new TaskList( sectionTask, data )
+let list = new TaskList( data, sectionTask )
 
 
 
@@ -69,13 +69,6 @@ function toggleNav ( event ) {
         inputTask.value = ''
     }
 }
-
-
-
-
-
-
-
 
 
 

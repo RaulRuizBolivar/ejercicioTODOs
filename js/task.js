@@ -39,20 +39,22 @@ export default class Task {
         article.classList.add( 'to-do' )
         divLeft.classList.add( 'left' )
         inputCheck.id = 'completada' + this.id
+        inputCheck.dataset.id = this.id
         inputCheck.type = 'checkbox'
         label.htmlFor = inputCheck.id
         divRight.classList.add( 'right' )
         select.id = 'tarea' + this.id
         select.classList.add( this.priority )
+        select.dataset.id = this.id
         optionDiaria.value = 'diaria'
         optionUrgente.value = 'urgente'
         optionMensual.value = 'mensual'
         divDelete.classList.add( 'delete' )
         iconDelete.classList.add( "fa-solid", "fa-trash-can" )
         if ( this.completed ) {
+            console.log( this.completed )
             inputCheck.checked = true
             label.classList.add( 'tachada' )
-            iconEdit.classList.add( 'gris' )
             select.disabled = true
             select.classList.remove( this.priority )
         }
@@ -77,9 +79,9 @@ export default class Task {
     }
     editPriority ( event ) {
         event.target.className = event.target.value
-        this.priority = event.target.value
-        console.log( list.list )
-        //list.upgradeLocalStorage( list.list )
+        let posicion = list.list.findIndex( Task => Task.id === Number( this.dataset.id ) )
+        list.list[ posicion ].priority = event.target.value
+        list.upgradeData()
     }
     complete ( event ) {
         this.completed = event.target.checked
@@ -95,5 +97,10 @@ export default class Task {
             select.classList.remove( event.target.dataset.selectClass )
             label.classList.add( 'tachada' )
         }
+        let posicion = list.list.findIndex( Task => Task.id === Number( this.dataset.id ) )
+        list.list[ posicion ].completed = this.completed
+        console.log( list.list[ posicion ].completed )
+        console.log( list.list )
+        list.upgradeData( list.list )
     }
 }

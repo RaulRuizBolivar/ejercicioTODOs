@@ -50,6 +50,9 @@ function capturePriority ( event ) {
 }
 function changeColor ( event ) {
     event.target.className = event.target.value
+    if ( event.target.value === '' ) {
+        event.target.className = 'gris'
+    }
 }
 
 
@@ -61,12 +64,16 @@ function toggleNav ( event ) {
         navs[ 1 ].classList.add( 'desaparecer' )
         navs[ 0 ].classList.remove( 'desaparecer' )
         inputFilter.value = ''
+        list.print()
     } else {
         iconPlus.classList.remove( 'desaparecer' )
         iconFilter.classList.add( 'desaparecer' )
         navs[ 1 ].classList.remove( 'desaparecer' )
         navs[ 0 ].classList.add( 'desaparecer' )
+        filterSelectTask.value = ''
+        filterSelectTask.className = 'gris'
         inputTask.value = ''
+        list.print()
     }
 }
 

@@ -6,7 +6,6 @@ export default class TaskList {
         this.dom = dom
 
         this.print()
-        this.list.forEach( task => console.log( task.completed ) )
     }
 
     print ( list = this.list, dom = this.dom ) {
@@ -27,7 +26,6 @@ export default class TaskList {
                     listNew.push( new Task( task.title, task.priority, task.completed ) )
                 } )
                 this.list = listNew
-                console.log( listNew )
                 return listNew
             }
         } else {
@@ -36,27 +34,28 @@ export default class TaskList {
         }
     }
     upgradeData ( list = this.list ) {
-        console.log( list )
         localStorage.setItem( 'Tasks_', JSON.stringify( list ) )
     }
     remove ( task ) {
         let taskToRemove = this.list.findIndex( taskToDelete => taskToDelete.id === Number( task.target.dataset.id ) )
         this.list.splice( taskToRemove, 1 )
-        console.log( this.list )
         this.upgradeData()
         this.print()
     }
     filterBySearch ( search ) {
         if ( search ) {
             let listaFiltrada = this.list.filter( task => task.title.toLowerCase().includes( search.toLowerCase() ) )
-            this.print( this.dom, listaFiltrada )
+            this.print( listaFiltrada )
         } else {
-            this.print( this.dom )
+            this.print()
         }
     }
     filterByPriority ( priority ) {
         let listaFiltrada = this.list.filter( task => task.priority === priority )
-        this.print( this.dom, listaFiltrada )
+        this.print( listaFiltrada )
+        if ( priority === '' ) {
+            this.print()
+        }
     }
 }
 

@@ -17,6 +17,9 @@
     <header>
         <div class="wrapper">
             <nav class="to-do">
+                <div class="addTask">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
                 <input type="text" id="newTask" placeholder="Nueva Tarea">
                 <div class="right">
                     <select class="urgente" id="priority">
@@ -24,19 +27,17 @@
                         <option value="mensual">Mensual</option>
                         <option value="diaria">Diaria</option>
                     </select>
-                    <div class="addTask">
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
                 </div>
             </nav>
             <nav class="to-do desaparecer">
-                <select class="urgente" id="filterByPriority">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="search" placeholder="Filtrar por tarea">
+                <select class="" id="filterByPriority">
+                    <option value="">Prioridad</option>
                     <option value="urgente">Urgente</option>
                     <option value="mensual">Mensual</option>
                     <option value="diaria">Diaria</option>
                 </select>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" id="search">
             </nav>
             <aside>
                 <i class="fa-solid fa-plus desaparecer"></i>
